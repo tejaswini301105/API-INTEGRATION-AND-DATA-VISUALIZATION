@@ -161,3 +161,5 @@ Connects to an external API to get live data.Parses JSON weather data.Visualizes
 #OUTPUT:
 
 ![Image](https://github.com/user-attachments/assets/d154a059-a1e3-43be-b9d8-6c2a6564925f)
+
+![Image](https://github.com/user-attachments/assets/19db4980-da59-4311-98d0-e6738c375808)
