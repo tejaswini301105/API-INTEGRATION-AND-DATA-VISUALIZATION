@@ -1,14 +1,14 @@
-COMPANY:CODETECH IT SOLUTIONS
+#COMPANY:CODETECH IT SOLUTIONS
 
-NAME:TEJASWINI BATHULA
+#NAME:TEJASWINI BATHULA
 
-INTERN ID:CT04DF32
+#INTERN ID:CT04DF32
 
-DOMAIN:PYTHON PROGRAMMING
+#DOMAIN:PYTHON PROGRAMMING
 
-DURATION:4 WEEKS
+#DURATION:4 WEEKS
 
-MENTOR:NEEELA SANTOSH
+#MENTOR:NEEELA SANTOSH
 
 
 Problem statement:
@@ -17,10 +17,13 @@ API (E.G., OPENWEATHERMAP) AND CREATE
 VISUALIZATIONS USING MATPLOTLIB OR
 SEABORN.
 Report: Fetching and Visualizing Weather Data Using Python
+
 📌Objective
+
 To fetch real-time weather data for the city of Visakhapatnam from the OpenWeatherMap public API and visualize key weather parameters such as Temperature, Feels Like temperature, and Humidity using a bar chart.
 
 📌Tools and Libraries Used
+
 requests: To send HTTP requests to the OpenWeatherMap API and retrieve weather data.
 
 matplotlib.pyplot: To create a bar chart visualization of the weather parameters.
@@ -34,85 +37,121 @@ import requests
 import matplotlib.pyplot as plt
 requests is used to handle HTTP requests.
 matplotlib.pyplot is used for plotting the bar chart.
-2. Defining API Access and City
-python
-Copy
-Edit
-city_name = "Visakhapatnam"
-api_key = "7f3fe070fb641332807ba83b1e35dc6e"
-url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric"
-city_name: The city for which weather data is fetched.
-api_key: Personal API key from OpenWeatherMap (required to access their data).
-url: The full API endpoint URL.
-units=metric ensures temperature is in Celsius.
-3. Fetching Weather Data
-python
-Copy
-Edit
+2. Defining API Access and City:
+   
+  city_name = "Visakhapatnam"
+
+  api_key = "7f3fe070fb641332807ba83b1e35dc6e"
+
+  url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric"
+
+  city_name: The city for which weather data is fetched.
+
+  api_key: Personal API key from OpenWeatherMap (required to access their data).
+
+  url: The full API endpoint URL.
+
+  units=metric ensures temperature is in Celsius.
+
+ 3. Fetching Weather Data:
+
 response = requests.get(url)
+
 Sends a GET request to the API endpoint.
+
 response contains the server’s reply.
-4. Checking Response Status and Extracting Data
-python
-Copy
-Edit
+
+4. Checking Response Status and Extracting Data:
+
 if response.status_code == 200:
+
     data = response.json()
+
     temp = data['main']['temp']
+
     feels_like = data['main']['feels_like']
+
     humidity = data['main']['humidity']
+   
     weather_desc = data['weather'][0]['description']
+   
     print('Weather is', weather_desc)
+   
     print('Current Temperature is', temp)
+   
     print('Current Temperature Feels like is', feels_like)
+   
     print('Humidity is', humidity)
-Check if response is successful (status_code == 200).
+   
+📌Check if response is successful (status_code == 200).
+
 Parse JSON data to extract:
+
 Temperature (temp)
+
 Feels Like temperature (feels_like)
+
 Humidity percentage (humidity)
+
 Weather description (weather_desc)
+
 Print the fetched weather details.
-5. Preparing Data for Visualization
-python
-Copy
-Edit
+
+5. Preparing Data for Visualization:
+
 labels = ['Temperature (°C)', 'Feels Like (°C)', 'Humidity (%)']
+
 values = [temp, feels_like, humidity]
+
 colors = ['red', 'green', 'yellow']
+
 Labels describe each bar on the chart.
+
 Values hold the corresponding numeric data.
+
 Colors assigned to each bar for visual clarity.
-6. Creating and Displaying the Bar Chart
-python
-Copy
-Edit
+
+6. Creating and Displaying the Bar Chart:
+   
 plt.bar(labels, values, color=colors)
+
 plt.title(f'Current Weather Conditions: {weather_desc.capitalize()}')
+
 plt.ylim(0, max(values) + 10)
+
 for i, v in enumerate(values):
+
     plt.text(i, v + 1, f"{v:.1f}", ha='center')
+    
 plt.show()
+
 Create a bar chart with labels and values.
+
 Title shows the weather condition description.
+
 Y-axis limit is set dynamically to give space above the tallest bar.
+
 Data labels (plt.text) show exact values above each bar.
+
 plt.show() renders the plot.
-7. Handling Error Responses
-python
-Copy
-Edit
+
+7. Handling Error Responses:
+   
 else:
     print(f'Response code is {response.status_code}')
+   
 Prints an error message if API call was unsuccessful.
+
 📌Sample Output:
-pgsql
-Copy
-Edit
+
 Weather is overcast clouds
+
 Current Temperature is 32.29
+
 Current Temperature Feels like is 39.29
+
 Humidity is 80
+
 And a bar chart with three bars showing Temperature, Feels Like temperature, and Humidity.
 
 📌Summary
