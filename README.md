@@ -87,13 +87,13 @@ if response.status_code == 200:
 
 Parse JSON data to extract:
 
-Temperature (temp)
+->Temperature (temp)
 
-Feels Like temperature (feels_like)
+->Feels Like temperature (feels_like)
 
-Humidity percentage (humidity)
+->Humidity percentage (humidity)
 
-Weather description (weather_desc)
+->Weather description (weather_desc)
 
 Print the fetched weather details.
 
@@ -105,19 +105,19 @@ values = [temp, feels_like, humidity]
 
 colors = ['red', 'green', 'yellow']
 
-Labels describe each bar on the chart.
+->Labels describe each bar on the chart.
 
-Values hold the corresponding numeric data.
+->Values hold the corresponding numeric data.
 
-Colors assigned to each bar for visual clarity.
+->Colors assigned to each bar for visual clarity.
 
 6. Creating and Displaying the Bar Chart:
    
-plt.bar(labels, values, color=colors)
+ plt.bar(labels, values, color=colors)
 
-plt.title(f'Current Weather Conditions: {weather_desc.capitalize()}')
+ plt.title(f'Current Weather Conditions: {weather_desc.capitalize()}')
 
-plt.ylim(0, max(values) + 10)
+ plt.ylim(0, max(values) + 10)
 
 for i, v in enumerate(values):
 
@@ -125,32 +125,32 @@ for i, v in enumerate(values):
     
 plt.show()
 
-Create a bar chart with labels and values.
+->Create a bar chart with labels and values.
 
-Title shows the weather condition description.
+->Title shows the weather condition description.
 
-Y-axis limit is set dynamically to give space above the tallest bar.
+->Y-axis limit is set dynamically to give space above the tallest bar.
 
-Data labels (plt.text) show exact values above each bar.
+->Data labels (plt.text) show exact values above each bar.
 
-plt.show() renders the plot.
+->plt.show() renders the plot.
 
 7. Handling Error Responses:
    
 else:
     print(f'Response code is {response.status_code}')
    
-Prints an error message if API call was unsuccessful.
+->Prints an error message if API call was unsuccessful.
 
 📌Sample Output:
 
-Weather is overcast clouds
+->Weather is overcast clouds
 
-Current Temperature is 32.29
+->Current Temperature is 32.29
 
-Current Temperature Feels like is 39.29
+->Current Temperature Feels like is 39.29
 
-Humidity is 80
+->Humidity is 80
 
 And a bar chart with three bars showing Temperature, Feels Like temperature, and Humidity.
 
